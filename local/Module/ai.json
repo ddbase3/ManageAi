@@ -23,6 +23,12 @@
 		"order": 300,
 		"enabled": 1,
 		"content": "sessionstorecontentcontrol"
+	},{
+		"tab": "vectorstore",
+		"name": "Vector Store",
+		"order": 400,
+		"enabled": 1,
+		"content": "vectorstorecontentcontrol"
 	}],
 	"subnavi": [],
         "toolbar": []
