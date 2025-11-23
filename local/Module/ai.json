@@ -1,0 +1,29 @@
+{
+	"module": "ai",
+	"name": "AI",
+	"order": 980,
+	"enabled": { "authenticated": 1, "scope": [ "web" ] },
+        "icon": "plugin/Base3Manager/assets/modulenavi/tool.png",
+	"header": "",
+	"tabs": [{
+		"tab": "aiservicetest",
+		"name": "Service Test",
+		"order": 95,
+		"enabled": 1,
+		"content": "aiservicetestcontentcontrol"
+	},{
+		"tab": "embeddingupload",
+		"name": "Manual Upload",
+		"order": 200,
+		"enabled": 1,
+		"content": "embeddinguploadcontentcontrol"
+	},{
+		"tab": "sessionstore",
+		"name": "Session Store",
+		"order": 300,
+		"enabled": 1,
+		"content": "sessionstorecontentcontrol"
+	}],
+	"subnavi": [],
+        "toolbar": []
+}

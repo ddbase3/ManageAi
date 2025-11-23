@@ -1,0 +1,8 @@
+[
+	{
+		"scope": "web",
+		"name": "Web",
+		"order": 10,
+		"active": 1
+	}
+]
