@@ -30,7 +30,7 @@ class GrokServiceTester implements IAiServiceTester {
         $url = rtrim($endpoint, '/') . '/chat/completions';
 
         $payload = json_encode([
-            "model" => "grok-2-latest",  // kleines, garantiert verfügbares Modell
+            "model" => "grok-4",  // kleines, garantiert verfügbares Modell
             "messages" => [
                 ["role" => "user", "content" => "ping"]
             ],
