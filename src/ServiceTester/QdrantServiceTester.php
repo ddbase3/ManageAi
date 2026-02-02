@@ -4,13 +4,22 @@ namespace ManageAi\ServiceTester;
 
 use AssistantFoundation\Api\IAiServiceTester;
 
-/**
- * Validates Qdrant API key via GET /collections.
- */
 class QdrantServiceTester implements IAiServiceTester {
 
 	public static function getType(): string {
 		return 'qdrant';
+	}
+
+	protected function isInvalidKeyCode(int $code): bool {
+		return $code === 401;
+	}
+
+	protected function buildHeaders(string $apikey): array {
+		$headers = [];
+		if ($apikey !== '') {
+			$headers[] = 'api-key: ' . $apikey;
+		}
+		return $headers;
 	}
 
 	public function test(array $config): array {
@@ -26,19 +35,17 @@ class QdrantServiceTester implements IAiServiceTester {
 		}
 
 		$url = rtrim($endpoint, '/') . '/collections';
-
-		$headers = [];
-		if ($apikey) {
-			$headers[] = 'api-key: ' . $apikey;
-		}
+		$headers = $this->buildHeaders($apikey);
 
 		$curl = curl_init($url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+		if ($headers) {
+			curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+		}
 
 		$response = curl_exec($curl);
 		$error = curl_error($curl);
-		$code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+		$code = (int)curl_getinfo($curl, CURLINFO_HTTP_CODE);
 		curl_close($curl);
 
 		if ($error) {
@@ -49,7 +56,7 @@ class QdrantServiceTester implements IAiServiceTester {
 			];
 		}
 
-		if ($code === 401) {
+		if ($this->isInvalidKeyCode($code)) {
 			return [
 				'ok' => false,
 				'apikey_valid' => false,
@@ -72,4 +79,3 @@ class QdrantServiceTester implements IAiServiceTester {
 		];
 	}
 }
-
