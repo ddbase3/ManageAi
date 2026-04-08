@@ -5,6 +5,7 @@ namespace ManageAi\ContentControl;
 use Base3\Api\IClassMap;
 use Base3\Api\IDisplay;
 use Base3\Api\IMvcView;
+use Base3\LinkTarget\Api\ILinkTargetService;
 use Base3Manager\ContentControl\AbstractContentControl;
 use Base3Manager\Service\Base3Manager;
 
@@ -12,10 +13,11 @@ class AiServiceTestContentControl extends AbstractContentControl {
 
         public function __construct(
 		protected IClassMap $classmap,
-                protected IMvcView $view,
+		protected IMvcView $view,
+		protected ILinkTargetService $linktargetservice,
 		protected Base3Manager $base3manager
 	) {
-		parent::__construct($this->view, $this->base3manager);
+		parent::__construct($this->view, $this->base3manager, $this->linktargetservice);
 	}
 
         // Implementation of IBase
