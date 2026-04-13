@@ -6,6 +6,12 @@
         "icon": "plugin/Base3Manager/assets/modulenavi/tool.png",
 	"header": "",
 	"tabs": [{
+		"tab": "aiprovider",
+		"name": "AI Provider",
+		"order": 500,
+		"enabled": 1,
+		"content": "aiprovidercontentcontrol"
+	},{
 		"tab": "aiservicetest",
 		"name": "Service Test",
 		"order": 95,
@@ -23,6 +29,12 @@
 		"order": 300,
 		"enabled": 1,
 		"content": "sessionstorecontentcontrol"
+	},{
+		"tab": "vectordbprovider",
+		"name": "Vector Db Provider",
+		"order": 510,
+		"enabled": 1,
+		"content": "vectordbprovidercontentcontrol"
 	},{
 		"tab": "vectorstore",
 		"name": "Vector Store",
