@@ -1,5 +1,5 @@
 {
-	"module": "system",
+	"module": "aisystem",
 	"name": "System",
 	"order": 1,
 	"enabled": { "authenticated": 1, "scope": [ "web" ] },
