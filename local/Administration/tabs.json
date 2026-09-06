@@ -1,0 +1,418 @@
+[
+	{
+		"name": "ilias",
+		"label": "ILIAS",
+		"displays": [
+			{
+				"name": "iliasdashboarddisplay",
+				"label": "Dashboard"
+			},
+			{
+				"name": "iliasconfigadmindisplay",
+				"label": "ILIAS Config"
+			},
+			{
+				"name": "iliaslogadmindisplay",
+				"label": "ILIAS Log"
+			},
+			{
+				"name": "iliaserrorlogadmindisplay",
+				"label": "ILIAS Errors"
+			},
+			{
+				"name": "iliassystemhealthdisplay",
+				"label": "ILIAS Health"
+			},
+			{
+				"name": "iliasrequestdebugdisplay",
+				"label": "ILIAS Request"
+			},
+			{
+				"name": "iliasuserdebugdisplay",
+				"label": "ILIAS User"
+			},
+			{
+				"name": "iliaspermissiondebugdisplay",
+				"label": "ILIAS Permissions"
+			},
+			{
+				"name": "iliasobjectdebugdisplay",
+				"label": "ILIAS Objects"
+			}
+		]
+	},
+	{
+		"name": "base3",
+		"label": "BASE3",
+		"displays": [
+			{
+				"name": "logadmindisplay",
+				"label": "BASE3 Log"
+			},
+			{
+				"name": "servicesadmindisplay",
+				"label": "Services"
+			},
+			{
+				"name": "configurationadmindisplay",
+				"label": "Configuration"
+			},
+			{
+				"name": "usermanagerdebugdisplay",
+				"label": "User Manager"
+			},
+			{
+				"name": "statestoreadmindisplay",
+				"label": "State Store"
+			},
+			{
+				"name": "jobsadmindisplay",
+				"label": "Jobs"
+			},
+			{
+				"name": "databaseworkbenchdisplay",
+				"label": "Database workbench"
+			},
+			{
+				"name": "iliasdemodatalifecycletestdisplay",
+				"label": "Demo Data"
+			}
+		]
+	},
+	{
+		"name": "chatbot",
+		"label": "Chatbot",
+		"displays": [
+			{
+				"name": "chatbotconfigdisplay",
+				"label": "Configuration",
+				"data": {
+					"group": "chatbot",
+					"name": "default",
+					"title": "Chatbot Configuration",
+					"description": "Global configuration for the chatbot.",
+					"submit_label": "Save"
+				}
+			},
+			{
+				"name": "chatbotextensionsconfigdisplay",
+				"label": "Extensions"
+			}
+		]
+	},
+	{
+		"name": "provider",
+		"label": "Provider",
+		"displays": [
+			{
+				"name": "connectionconfigdisplay",
+				"label": "Connections"
+			},
+			{
+				"name": "llmconfigdisplay",
+				"label": "LLMs"
+			},
+			{
+				"name": "embeddingconfigdisplay",
+				"label": "Embeddings"
+			},
+			{
+				"name": "speechtotextconfigdisplay",
+				"label": "Speech-to-Text"
+			},
+			{
+				"name": "texttospeechconfigdisplay",
+				"label": "Text-to-Speech"
+			},
+			{
+				"name": "imageconfigdisplay",
+				"label": "Images"
+			},
+			{
+				"name": "searchconfigdisplay",
+				"label": "Search"
+			},
+			{
+				"name": "parserserviceconfigdisplay",
+				"label": "Parser Services"
+			},
+			{
+				"name": "vectorstoreconfigdisplay",
+				"label": "Vector Stores"
+			}
+		]
+	},
+	{
+		"name": "aiusage",
+		"label": "AI Usage",
+		"displays": [
+			{
+				"name": "ai_usage_overview",
+				"display": "compositedisplay",
+				"label": "Overview",
+				"data": {
+					"columns": 2,
+					"items": [
+						{
+							"id": "metrics",
+							"display": "generalreportdisplay",
+							"data": "missionbay_ai_usage_metrics",
+							"span": 2
+						},
+						{
+							"id": "tokens",
+							"display": "generalreportdisplay",
+							"data": "missionbay_ai_usage_tokens_timeline"
+						},
+						{
+							"id": "operations",
+							"display": "generalreportdisplay",
+							"data": "missionbay_ai_usage_operations"
+						},
+						{
+							"id": "models",
+							"display": "generalreportdisplay",
+							"title": "Models",
+							"data": "missionbay_ai_usage_models",
+							"span": 2
+						}
+					]
+				}
+			},
+			{
+				"name": "ai_usage_tokens",
+				"display": "generalreportdisplay",
+				"label": "Tokens",
+				"data": "missionbay_ai_usage_tokens_timeline"
+			},
+			{
+				"name": "ai_usage_models",
+				"display": "generalreportdisplay",
+				"label": "Models",
+				"data": "missionbay_ai_usage_models"
+			},
+			{
+				"name": "ai_usage_operations",
+				"display": "generalreportdisplay",
+				"label": "Operations",
+				"data": "missionbay_ai_usage_operations"
+			},
+			{
+				"name": "ai_usage_users",
+				"display": "generalreportdisplay",
+				"label": "Users / Contexts",
+				"data": "missionbay_ai_usage_users"
+			},
+			{
+				"name": "ai_usage_requests",
+				"display": "generalreportdisplay",
+				"label": "Requests",
+				"data": "missionbay_ai_usage_requests"
+			}
+		]
+	},
+	{
+		"name": "agents",
+		"label": "Agents",
+		"displays": [
+			{
+				"name": "agentadmindisplay",
+				"label": "Agents"
+			},
+			{
+				"name": "agentcompositionadmindisplay",
+				"label": "Effective Composition"
+			},
+			{
+				"name": "agentorchestratorprofileadmindisplay",
+				"label": "Orchestrator Profiles"
+			},
+			{
+				"name": "toolprofileadmindisplay",
+				"label": "Tool Profiles"
+			},
+			{
+				"name": "agentmemoryprofileadmindisplay",
+				"label": "Memory Profiles"
+			},
+			{
+				"name": "agentcontextprofileadmindisplay",
+				"label": "Context Profiles"
+			},
+			{
+				"name": "agentcomponentpresetadmindisplay",
+				"label": "Component Presets"
+			}
+		]
+	},
+	{
+		"name": "agenttools",
+		"label": "Agent Tools",
+		"displays": [
+			{
+				"name": "agenttoollogadmindisplay",
+				"label": "Tool Log"
+			},
+			{
+				"name": "agentcomponentpresettestadmindisplay",
+				"label": "Agent Component Preset Tests"
+			},
+			{
+				"name": "agentinfotopicprovidertestadmindisplay",
+				"label": "InfoTopicProvider Test"
+			},
+			{
+				"name": "knowledgeagentmemoryadmindisplay",
+				"label": "Knowledge / Skills"
+			},
+			{
+				"name": "userprefdefadmindisplay",
+				"label": "User Preferences"
+			}
+		]
+	},
+	{
+		"name": "embedding",
+		"label": "Embedding",
+		"displays": [
+			{
+				"name": "embeddingorchestratorconfigadmindisplay",
+				"label": "Configuration"
+			},
+			{
+				"name": "retrievalcollectionadmindisplay",
+				"label": "Collections"
+			},
+			{
+				"name": "iliasembeddingprogressadmindisplay",
+				"label": "Embedding Progress"
+			},
+			{
+				"name": "iliasembeddingqueueadmindisplay",
+				"label": "Embedding Queue"
+			},
+			{
+				"name": "iliassourcekindenqueueadmindisplay",
+				"label": "Source Kinds"
+			},
+			{
+				"name": "retrievalvectorpointsadmindisplay",
+				"label": "Vector Points"
+			},
+			{
+				"name": "retrievalsearchadmindisplay",
+				"label": "Retrieval Search"
+			}
+		]
+	},
+	{
+		"name": "parseflow",
+		"label": "ParseFlow",
+		"displays": [
+			{
+				"name": "parserexploreradmindisplay",
+				"label": "Routes"
+			},
+			{
+				"name": "parseflowparseradmindisplay",
+				"label": "Parsers"
+			}
+		]
+	},
+	{
+		"name": "contentforge",
+		"label": "ContentForge",
+		"displays": [
+			{
+				"name": "contentforgestepwidgetdisplay",
+				"label": "ContentForge"
+			}
+		]
+	},
+	{
+		"name": "datahawk",
+		"label": "DataHawk",
+		"displays": [
+			{
+				"name": "datahawkschemadisplay",
+				"label": "DB Schema"
+			},
+			{
+				"name": "datahawkmaterializationoverviewdisplay",
+				"label": "Materialization"
+			},
+			{
+				"name": "datahawkmaterializationmanifestdisplay",
+				"label": "Manifests"
+			},
+			{
+				"name": "datahawkmaterializationregistrydisplay",
+				"label": "Registry"
+			},
+			{
+				"name": "datahawkmaterializationrundisplay",
+				"label": "Runs"
+			},
+			{
+				"name": "datahawkmaterializationtabledisplay",
+				"label": "Tables"
+			}
+		]
+	},
+	{
+		"name": "credentials",
+		"label": "API Keys",
+		"displays": [
+			{
+				"name": "keymanagementdisplay",
+				"label": "My API Keys"
+			},
+			{
+				"name": "keyharboradmindisplay",
+				"label": "Administration"
+			},
+			{
+				"name": "keyharbordemoadmindisplay",
+				"label": "Demo"
+			}
+		]
+	},
+	{
+		"name": "messaging",
+		"label": "Messaging",
+		"displays": [
+			{
+				"name": "messagehubdashboarddisplay",
+				"label": "Dashboard"
+			},
+			{
+				"name": "messagetemplateadmindisplay",
+				"label": "Templates"
+			},
+			{
+				"name": "messagevariantadmindisplay",
+				"label": "Variants"
+			},
+			{
+				"name": "messagetypesyncadmindisplay",
+				"label": "Type Sync"
+			},
+			{
+				"name": "messagequeueadmindisplay",
+				"label": "Queue"
+			},
+			{
+				"name": "messagedeliverylogadmindisplay",
+				"label": "Deliveries"
+			},
+			{
+				"name": "messagetransportadmindisplay",
+				"label": "Transports"
+			},
+			{
+				"name": "messagehubdemoadmindisplay",
+				"label": "Demo"
+			}
+		]
+	}
+]
