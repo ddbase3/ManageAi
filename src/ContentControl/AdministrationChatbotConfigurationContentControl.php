@@ -46,7 +46,8 @@ class AdministrationChatbotConfigurationContentControl extends AbstractContentCo
 				'name' => 'default',
 				'title' => 'Chatbot Configuration',
 				'description' => 'Global configuration for the chatbot.',
-				'submit_label' => 'Save'
+				'submit_label' => 'Save',
+				'resources' => ['enabled' => false]
 			];
 			$display->setData($data);
 

@@ -1,47 +1,5 @@
 [
 	{
-		"name": "ilias",
-		"label": "ILIAS",
-		"displays": [
-			{
-				"name": "iliasdashboarddisplay",
-				"label": "Dashboard"
-			},
-			{
-				"name": "iliasconfigadmindisplay",
-				"label": "ILIAS Config"
-			},
-			{
-				"name": "iliaslogadmindisplay",
-				"label": "ILIAS Log"
-			},
-			{
-				"name": "iliaserrorlogadmindisplay",
-				"label": "ILIAS Errors"
-			},
-			{
-				"name": "iliassystemhealthdisplay",
-				"label": "ILIAS Health"
-			},
-			{
-				"name": "iliasrequestdebugdisplay",
-				"label": "ILIAS Request"
-			},
-			{
-				"name": "iliasuserdebugdisplay",
-				"label": "ILIAS User"
-			},
-			{
-				"name": "iliaspermissiondebugdisplay",
-				"label": "ILIAS Permissions"
-			},
-			{
-				"name": "iliasobjectdebugdisplay",
-				"label": "ILIAS Objects"
-			}
-		]
-	},
-	{
 		"name": "base3",
 		"label": "BASE3",
 		"displays": [
@@ -74,8 +32,16 @@
 				"label": "Database workbench"
 			},
 			{
-				"name": "iliasdemodatalifecycletestdisplay",
-				"label": "Demo Data"
+				"name": "authorizationgroupsdisplay",
+				"label": "BASE3 Groups"
+			},
+			{
+				"name": "authorizationfeaturesdisplay",
+				"label": "BASE3 Features"
+			},
+			{
+				"name": "authorizationadministrationdisplay",
+				"label": "Resource Rights"
 			}
 		]
 	},
@@ -91,7 +57,8 @@
 					"name": "default",
 					"title": "Chatbot Configuration",
 					"description": "Global configuration for the chatbot.",
-					"submit_label": "Save"
+					"submit_label": "Save",
+					"resources": { "enabled": false }
 				}
 			},
 			{
@@ -282,18 +249,6 @@
 			{
 				"name": "retrievalcollectionadmindisplay",
 				"label": "Collections"
-			},
-			{
-				"name": "iliasembeddingprogressadmindisplay",
-				"label": "Embedding Progress"
-			},
-			{
-				"name": "iliasembeddingqueueadmindisplay",
-				"label": "Embedding Queue"
-			},
-			{
-				"name": "iliassourcekindenqueueadmindisplay",
-				"label": "Source Kinds"
 			},
 			{
 				"name": "retrievalvectorpointsadmindisplay",
