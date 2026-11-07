@@ -1,55 +1,51 @@
 # ManageAi
 
-Base3Framework Base3Manager project plugin for AI configuration and administration.
+Manager-specific AI service composition and tools. The project continues to
+bind the existing MySQL/Settings Store, FileBridge managed-file storage and
+ClientStack FileManager HTTP/upload services. The `manageaichatbotfiles`
+output remains the sole owner of the Manager chatbot resource endpoint.
 
-## Discoverable administration tabs
+## Settings navigation migration
 
-`?scope=web&module=manageai&tab=administration` still resolves the existing
-`ManageAiAdministrationContentControl`, which delegates to ClientStack's
-`SettingsDisplay`. Installed plugins contribute their `ISettingsTab` classes
-through the existing class map, with native XRM authorization deciding visibility.
-The former static `local/Administration/tabs.json` list is no longer read.
-After installing and verifying this patch, run:
+The former `Werkzeuge > Administration` embedding of `SettingsDisplay` is
+replaced by `ManageSettings`, which statically configures Manager modules and
+renders existing `IDisplay` classes directly. Existing AI-only tools remain
+under `ManageAi/local/Module/ai.json` (AI Provider, tests, upload and stores).
+The standalone Agent Tool Test formerly in the old Agent Tools module is
+retained here under the same content control. All other retired legacy
+module tabs resolve to displays already present in ManageSettings.
+The old `manageai`, `aisystem`, `chatbot`, `providers`, `agenttools` and
+`parseflow` module declarations must be removed after installing ManageSettings,
+otherwise their navigation remains duplicated. Run:
 
 ```sh
-sh plugin/ManageAi/scripts/remove-obsolete-settings-tabs.sh
+sh plugin/ManageAi/scripts/remove-migrated-settings-navigation.sh
 ```
 
-The script only deletes the expected, unmodified old file and succeeds when it
-has already been removed. Do not restore the old JSON list.
+This script validates the old files before deletion and succeeds when they are
+already absent. The retired `ManageAiAdministrationContentControl` and its
+unreferenced view/test are also removed. Existing standalone administration
+content controls are not repurposed as new settings adapters.
 
 ## Canonical chatbot configuration and resources
 
-Both the discoverable Chatbot Settings tab and the existing `chatbot` Manager
-module use the same project-provided `chatbotConfigDisplayData` service. They
-both address the existing `chatbot/default` Settings Store record. Resources
-use the existing FileBridge/ClientStack FileManager protocol. There is no new
-upload implementation or duplicate chatbot settings record.
+The `ManageAiPlugin` registration of `chatbotConfigDisplayData` is retained for
+existing `ChatbotconfigSettingsTab` consumers. The new static Manager chatbot
+tab supplies equivalent `chatbot/default` identity and the explicit FileManager
+endpoints in its JSON `data`. Neither path creates a second dataset.
 
-`ManageAiPlugin` registers the current FileBridge backend under
-`IManagedFileStorageService`, uses `FileUploadService`, and exposes the
-`manageaichatbotfiles` output. The host explicitly checks the logged-in XRM
-user, the existing `system/admin` decision and the
-`chatbotconfigsettingstab` feature for every file operation. The FileManager
-service handles its existing POST/XHR protocol; downloads remain GET.
+The `manageaichatbotfiles` endpoint still checks user identity and the existing
+feature permission before processing any request, then uses the unchanged
+FileBridge/ClientStack FileManager protocol. Non-download actions require POST
+and XMLHttpRequest. File upload/chunking, list, copy, delete and download
+continue through the existing handler.
 
-Configure `[directories] data` as an **absolute directory outside the public
-web root**, writable only by the PHP application identity and its appropriate
-service group. The backend stores managed owners under `data/filemanager/owners`
-and upload staging under `data/filemanager/uploads`. Do not expose this directory
-through the web server, including when using nginx, or include it in static
-asset publication. Database settings remain the existing `ISettingsStore` owner.
+Configure `[directories] data` as an absolute private directory outside the
+public web root, writable by the PHP service identity. The FileManager stores
+managed owners under `filemanager/owners` and upload staging under
+`filemanager/uploads`. Protect storage with filesystem permissions and web
+server configuration. No new rights mapping or authority is introduced.
 
-Grant rights through the active XRM authorization authority. Visibility does
-not bypass direct server checks. Test denied users, uploads, downloads, deletion,
-AJAX tabs, and retained `chatbot` module functionality in the deployed Manager.
-No separate grant mapping is introduced.
-
-### Administration initial-load isolation
-
-The Manager's AJAX-loaded administration uses `SettingsDisplay` with
-`initial_load_via_ajax=true`. This isolates the first settings panel HTTP status
-from the outer `?name=content` response. A refused panel still returns its own
-403 and cannot be accessed directly; other permitted panels remain selectable.
-The manager's public history URL remains the existing `scope=web&module=manageai`
-route. No changes to `TabControlDisplay` or other platform integrations are required.
+After deployment, rebuild the class map with the existing project procedure
+and test each static settings module, the AI Usage overview, denied displays,
+and chatbot resource upload/download from a real Manager session.

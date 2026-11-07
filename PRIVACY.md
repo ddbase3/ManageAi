@@ -6,9 +6,11 @@ notice or compliance attestation.
 ## Processing and storage
 
 `ManageAiPlugin` binds the existing MySQL database and `DatabaseSettingsStore`.
-The discoverable administration tabs and existing chatbot module address the
-same `chatbot/default` settings dataset; provider configuration, credentials and
-other content are processed by their owning plugins and services.
+The new ManageSettings chatbot module and existing Chatbot settings consumers
+address the same `chatbot/default` settings dataset. The former nested Manager
+administration route is removed; provider configuration, credentials and other
+content remain with their owning plugins and services. This navigation change
+does not introduce a new data store or processing purpose.
 
 The Manager project now composes the existing FileBridge local managed storage
 and ClientStack FileManager HTTP/upload services for chatbot resources. A
