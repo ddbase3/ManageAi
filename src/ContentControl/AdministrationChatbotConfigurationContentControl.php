@@ -15,7 +15,8 @@ class AdministrationChatbotConfigurationContentControl extends AbstractContentCo
 		protected IMvcView $view,
 		protected Base3Manager $base3manager,
 		protected ILinkTargetService $linktargetservice,
-		private readonly IClassMap $classmap
+		private readonly IClassMap $classmap,
+		private readonly array $chatbotConfigDisplayData
 	) {
 		parent::__construct($view, $base3manager, $linktargetservice);
 	}
@@ -41,15 +42,7 @@ class AdministrationChatbotConfigurationContentControl extends AbstractContentCo
 		$display = $this->classmap->getInstanceByInterfaceName(IDisplay::class, 'chatbotconfigdisplay');
 		if ($display != null) {
 
-			$data = [
-				'group' => 'chatbot',
-				'name' => 'default',
-				'title' => 'Chatbot Configuration',
-				'description' => 'Global configuration for the chatbot.',
-				'submit_label' => 'Save',
-				'resources' => ['enabled' => false]
-			];
-			$display->setData($data);
+			$display->setData($this->chatbotConfigDisplayData);
 
 			$content = $display->getOutput();
 		}

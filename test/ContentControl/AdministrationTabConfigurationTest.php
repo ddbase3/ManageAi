@@ -2,27 +2,33 @@
 
 namespace ManageAi\Test\ContentControl;
 
+use Base3\Api\IClassMap;
+use Base3\Api\IDisplay;
+use Base3\Api\IMvcView;
+use Base3\LinkTarget\Api\ILinkTargetService;
+use Base3Manager\Service\Base3Manager;
+use ManageAi\ContentControl\ManageAiAdministrationContentControl;
 use PHPUnit\Framework\TestCase;
+use ReflectionMethod;
 
 final class AdministrationTabConfigurationTest extends TestCase {
 
-	public function testSharedAuthorizationDisplaysAreDefinedOnceInBase3(): void {
-		$file = dirname(__DIR__, 2) . '/local/Administration/tabs.json';
-		$tabs = json_decode((string) file_get_contents($file), true, 512, JSON_THROW_ON_ERROR);
-		$this->assertIsArray($tabs);
-		$this->assertNotContains('ilias', array_column($tabs, 'name'));
-
-		$base3Tabs = array_values(array_filter($tabs, static fn(array $tab): bool => $tab['name'] === 'base3'));
-		$this->assertCount(1, $base3Tabs);
-		$names = array_column($base3Tabs[0]['displays'], 'name');
-		foreach (['authorizationgroupsdisplay', 'authorizationfeaturesdisplay', 'authorizationadministrationdisplay'] as $display) {
-			$this->assertSame(1, count(array_filter($names, static fn(string $name): bool => $name === $display)));
-		}
-
-		foreach ($tabs as $tab) {
-			foreach ($tab['displays'] as $display) {
-				$this->assertFalse(str_starts_with($display['name'], 'ilias'), $display['name']);
-			}
-		}
+	public function testAdministrationUsesDiscoverableSettingsDisplayAndManagerBrowserUrl(): void {
+		$display = $this->createMock(IDisplay::class);
+		$display->expects(self::once())->method('setData')->with([
+			'history_url' => '?scope=web&module=manageai&tab=administration',
+			'initial_load_via_ajax' => true
+		]);
+		$display->expects(self::once())->method('getOutput')->willReturn('settings tabs');
+		$classmap = $this->createMock(IClassMap::class);
+		$classmap->expects(self::once())->method('getInstanceByInterfaceName')
+			->with(IDisplay::class, 'settingsdisplay')->willReturn($display);
+		$view = $this->createMock(IMvcView::class);
+		$view->expects(self::once())->method('assign')->with('content', 'settings tabs');
+		$instance = new ManageAiAdministrationContentControl(
+			$view, $this->createStub(Base3Manager::class),
+			$this->createStub(ILinkTargetService::class), $classmap
+		);
+		(new ReflectionMethod(ManageAiAdministrationContentControl::class, 'fillView'))->invoke($instance);
 	}
 }
