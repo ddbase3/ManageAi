@@ -1,23 +1,38 @@
 <?php declare(strict_types=1);
 
-namespace ManageAi;
+/***********************************************************************
+ * This file is part of ManageAi for BASE3 Framework.
+ *
+ * ManageAi configures AI services and their resources.
+ * It supplies manager controls and service connectivity tests.
+ * File manager integration uses existing BASE3 services.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use Base3\Api\IContainer;
-use Base3\Configuration\Api\IConfiguration;
-use Base3\Database\Api\IDatabase;
-use Base3\Database\Mysql\MysqlDatabase;
-use Base3\Settings\Api\ISettingsStore;
-use Base3\Settings\Database\DatabaseSettingsStore;
-use Base3\Api\ILinkTargetService;
-use Base3\Event\Api\IEventManager;
-use Base3\Api\IRequest;
-use Base3\Translation\Api\ITranslation;
-use ClientStack\FileManager\FileManagerHttpService;
-use ClientStack\FileManager\FileUploadService;
-use FileBridge\Local\LocalManagedFileStorageService;
-use ResourceFoundation\Api\IManagedFileStorageService;
-use ManageAi\Output\ChatbotResourcesOutput;
-use Base3Manager\Plugin\AbstractPlugin;
+
+namespace Base3\ManageAi;
+
+use Base3\CoreFoundation\Api\IContainer;
+use Base3\CoreFoundation\Configuration\Api\IConfiguration;
+use Base3\CoreFoundation\Database\Api\IDatabase;
+use Base3\Core\Database\Mysql\MysqlDatabase;
+use Base3\CoreFoundation\Settings\Api\ISettingsStore;
+use Base3\Core\Settings\Database\DatabaseSettingsStore;
+use Base3\CoreFoundation\LinkTarget\Api\ILinkTargetService;
+use Base3\CoreFoundation\Event\Api\IEventManager;
+use Base3\CoreFoundation\Api\IRequest;
+use Base3\CoreFoundation\Translation\Api\ITranslation;
+use Base3\ClientStack\FileManager\FileManagerHttpService;
+use Base3\ClientStack\FileManager\FileUploadService;
+use Base3\FileBridge\Local\LocalManagedFileStorageService;
+use Base3\ResourceFoundation\Api\IManagedFileStorageService;
+use Base3\ManageAi\Output\ChatbotResourcesOutput;
+use Base3\Base3Manager\Plugin\AbstractPlugin;
 
 class ManageAiPlugin extends AbstractPlugin {
 

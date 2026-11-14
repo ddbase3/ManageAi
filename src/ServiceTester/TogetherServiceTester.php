@@ -1,14 +1,29 @@
 <?php declare(strict_types=1);
 
+/***********************************************************************
+ * This file is part of ManageAi for BASE3 Framework.
+ *
+ * ManageAi configures AI services and their resources.
+ * It supplies manager controls and service connectivity tests.
+ * File manager integration uses existing BASE3 services.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
+
+
 /*
  * [together]
  * endpoint = "https://api.together.xyz/v1"
  * apikey = "together-..."
  */
 
-namespace ManageAi\ServiceTester;
+namespace Base3\ManageAi\ServiceTester;
 
-use AssistantFoundation\Api\IAiServiceTester;
+use Base3\AssistantFoundation\Api\IAiServiceTester;
 
 /**
  * Validates Together AI API key via minimal chat completion call.

@@ -1,17 +1,32 @@
 <?php declare(strict_types=1);
 
-namespace ManageAi\Test\Output;
+/***********************************************************************
+ * This file is part of ManageAi for BASE3 Framework.
+ *
+ * ManageAi configures AI services and their resources.
+ * It supplies manager controls and service connectivity tests.
+ * File manager integration uses existing BASE3 services.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use Base3\Api\IRequest;
-use Base3\Authorization\Api\IAuthorizationService;
-use Base3\Authorization\Dto\AuthorizationDecision;
-use Base3\Usermanager\Api\IUsermanager;
-use Base3\Usermanager\User;
-use ClientStack\FileManager\FileManagerHttpService;
-use ClientStack\FileManager\FileUploadService;
-use ResourceFoundation\Api\IManagedFileStorageService;
-use Base3\Translation\Api\ITranslation;
-use ManageAi\Output\ChatbotResourcesOutput;
+
+namespace Base3\ManageAi\Test\Output;
+
+use Base3\CoreFoundation\Api\IRequest;
+use Base3\CoreFoundation\Authorization\Api\IAuthorizationService;
+use Base3\CoreFoundation\Authorization\Dto\AuthorizationDecision;
+use Base3\CoreFoundation\Usermanager\Api\IUsermanager;
+use Base3\CoreFoundation\Usermanager\User;
+use Base3\ClientStack\FileManager\FileManagerHttpService;
+use Base3\ClientStack\FileManager\FileUploadService;
+use Base3\ResourceFoundation\Api\IManagedFileStorageService;
+use Base3\CoreFoundation\Translation\Api\ITranslation;
+use Base3\ManageAi\Output\ChatbotResourcesOutput;
 use PHPUnit\Framework\TestCase;
 
 final class ChatbotResourcesOutputTest extends TestCase {

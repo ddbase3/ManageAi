@@ -1,6 +1,21 @@
 <?php declare(strict_types=1);
 
-namespace ManageAi\Test\ContentControl;
+/***********************************************************************
+ * This file is part of ManageAi for BASE3 Framework.
+ *
+ * ManageAi configures AI services and their resources.
+ * It supplies manager controls and service connectivity tests.
+ * File manager integration uses existing BASE3 services.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
+
+
+namespace Base3\ManageAi\Test\ContentControl;
 
 use PHPUnit\Framework\TestCase;
 

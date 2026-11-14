@@ -1,13 +1,28 @@
 <?php declare(strict_types=1);
 
-namespace ManageAi\ContentControl;
+/***********************************************************************
+ * This file is part of ManageAi for BASE3 Framework.
+ *
+ * ManageAi configures AI services and their resources.
+ * It supplies manager controls and service connectivity tests.
+ * File manager integration uses existing BASE3 services.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use Base3\Api\IClassMap;
-use Base3\Api\IDisplay;
-use Base3\Api\IMvcView;
-use Base3\LinkTarget\Api\ILinkTargetService;
-use Base3Manager\Service\Base3Manager;
-use Base3Manager\ContentControl\AbstractContentControl;
+
+namespace Base3\ManageAi\ContentControl;
+
+use Base3\CoreFoundation\Api\IClassMap;
+use Base3\CoreFoundation\Api\IDisplay;
+use Base3\CoreFoundation\Api\IMvcView;
+use Base3\CoreFoundation\LinkTarget\Api\ILinkTargetService;
+use Base3\Base3Manager\Service\Base3Manager;
+use Base3\Base3Manager\ContentControl\AbstractContentControl;
 
 class AdministrationEmbeddingConfigContentControl extends AbstractContentControl {
 

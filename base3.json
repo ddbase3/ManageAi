@@ -1,0 +1,19 @@
+{
+	"manifestVersion": 1,
+	"name": "ManageAi",
+	"namespace": "Base3\\ManageAi",
+	"version": "0.0.0",
+	"description": "ManageAi configures AI services and their resources. It supplies manager controls and service connectivity tests. File manager integration uses existing BASE3 services.",
+	"license": "GPL-3.0",
+	"dependencies": {
+		"AssistantFoundation": ">=4.18.0",
+		"Base3Manager": ">=0.0.0",
+		"Chatbot": ">=4.23.0",
+		"ClientStack": ">=4.23.0",
+		"Core": ">=4.10.0",
+		"CoreFoundation": ">=4.10.0",
+		"FileBridge": ">=1.0.0",
+		"ResourceFoundation": ">=4.5.0",
+		"UiFoundation": ">=4.3.0"
+	}
+}
