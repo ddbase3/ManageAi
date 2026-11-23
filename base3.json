@@ -2,18 +2,26 @@
 	"manifestVersion": 1,
 	"name": "ManageAi",
 	"namespace": "Base3\\ManageAi",
-	"version": "0.0.0",
+	"version": "5.0.0",
 	"description": "ManageAi configures AI services and their resources. It supplies manager controls and service connectivity tests. File manager integration uses existing BASE3 services.",
-	"license": "GPL-3.0",
+	"license": "GPL-3.0-or-later",
+	"maintainers": [
+		{
+			"name": "Daniel Dahme",
+			"url": "https://www.base3.de",
+			"email": "info@base3.de"
+		}
+	],
+	"repository": "https://github.com/ddbase3/AssistantFoundation",
 	"dependencies": {
-		"AssistantFoundation": ">=4.18.0",
-		"Base3Manager": ">=0.0.0",
-		"Chatbot": ">=4.23.0",
-		"ClientStack": ">=4.23.0",
-		"Core": ">=4.10.0",
-		"CoreFoundation": ">=4.10.0",
-		"FileBridge": ">=1.0.0",
-		"ResourceFoundation": ">=4.5.0",
-		"UiFoundation": ">=4.3.0"
+		"AssistantFoundation": ">=5.0.0",
+		"Base3Manager": ">=5.0.0",
+		"Chatbot": ">=5.0.0",
+		"ClientStack": ">=5.0.0",
+		"Core": ">=5.0.0",
+		"CoreFoundation": ">=5.0.0",
+		"FileBridge": ">=5.0.0",
+		"ResourceFoundation": ">=5.0.0",
+		"UiFoundation": ">=5.0.0"
 	}
 }
