@@ -12,7 +12,7 @@
 			"email": "info@base3.de"
 		}
 	],
-	"repository": "https://github.com/ddbase3/AssistantFoundation",
+	"repository": "https://github.com/ddbase3/ManageAi",
 	"dependencies": {
 		"AssistantFoundation": ">=5.0.0",
 		"Base3Manager": ">=5.0.0",
